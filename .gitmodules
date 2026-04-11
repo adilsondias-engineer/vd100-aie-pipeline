@@ -13,3 +13,6 @@
 [submodule "vd100_bd_aie_pipeline"]
 	path = vd100_bd_aie_pipeline
 	url = https://github.com/adilsondias-engineer/vd100_bd_aie_pipeline.git
+[submodule "meta-vd100_v3"]
+	path = meta-vd100_v3
+	url = https://github.com/adilsondias-engineer/meta-vd100_v3.git
