@@ -41,7 +41,7 @@ with results destined for an Ethereum smart contract on-chain log.
 
 ```
 vd100-aie-pipeline/
-├── aie-pipeline/              # Vivado block design — PL hardware platform
+├── vd100_bd_aie_pipeline/     # Vivado block design — PL hardware platform
 ├── ip_repo/                   # Custom IP: MyLEDIP
 ├── mm2s/                      # HLS kernel: PS DDR → AXI4-Stream → AIE
 ├── s2mm/                      # HLS kernel: AIE → AXI4-Stream → PS DDR
@@ -151,7 +151,7 @@ Each component has its own README:
 
 | Component | Description |
 |-----------|-------------|
-| `aie-pipeline/` | Vivado BD — platform hardware design |
+| `vd100_bd_aie_pipeline/` | Vivado BD — platform hardware design |
 | `mm2s/` | HLS DMA source kernel |
 | `s2mm/` | HLS DMA sink kernel |
 | `vd100-aie-ma-crossover/` | AIE-ML v2 kernel + BOOT.BIN fix |
