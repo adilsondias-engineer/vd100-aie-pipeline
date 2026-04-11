@@ -1,0 +1,64 @@
+---
+MainSourceFile:  '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        '/tools/Xilinx/2025.2/Vitis/common/technology/autopilot/etc/ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+          Offset:          279845
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  '/work/versal/vd100-aie-pipeline/mm2s'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        '/tools/Xilinx/2025.2/Vitis/common/technology/autopilot/etc/ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+          Offset:          280316
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  '/work/versal/vd100-aie-pipeline/mm2s'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        '/tools/Xilinx/2025.2/Vitis/common/technology/autopilot/etc/ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+          Offset:          280788
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  '/work/versal/vd100-aie-pipeline/mm2s'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        '/tools/Xilinx/2025.2/Vitis/common/technology/autopilot/etc/ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+          Offset:          627779
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  '/work/versal/vd100-aie-pipeline/mm2s'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_23_1:  '
+      FilePath:        '/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp'
+      FileOffset:      23
+      Replacements:
+        - FilePath:        '/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp'
+          Offset:          2385288
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_23_1: '
+    Level:           Remark
+    BuildDirectory:  '/work/versal/vd100-aie-pipeline/mm2s'
+...

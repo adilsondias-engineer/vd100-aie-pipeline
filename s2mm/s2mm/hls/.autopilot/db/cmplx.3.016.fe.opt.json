@@ -1,0 +1,17 @@
+{
+  "0": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "s2mm.cpp",
+    "fileloc": 14,
+    "instructions": 40,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 3,
+    "name": "s2mm",
+    "total_instructions": 40
+  }
+}

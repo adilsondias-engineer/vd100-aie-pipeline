@@ -1,0 +1,8 @@
+mm2s_gmem_m_axi
+mm2s_control_s_axi
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_flow_control_loop_pipe
+mm2s

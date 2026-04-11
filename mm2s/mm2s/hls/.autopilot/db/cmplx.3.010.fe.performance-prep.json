@@ -1,0 +1,20 @@
+{
+  "0": {
+    "basicblocks": 5,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "mm2s.cpp",
+    "fileloc": 14,
+    "instructions": 54,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 8,
+    "name": "mm2s",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 66
+  }
+}

@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Apr 11 14:51:44 2026
+# Process ID         : 37024
+# Current directory  : /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip
+# Command line       : vivado -notrace -mode batch -source run_ippack.tcl
+# Log file           : /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/vivado.log
+# Journal file       : /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/vivado.jou
+# Running On         : Saturn
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 25.10
+# Processor Detail   : Intel(R) Core(TM) i9-14900KF
+# CPU Frequency      : 798.537 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 132425 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 141015 MB
+# Available Virtual  : 91768 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/hls_data.json outdir=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip srcdir=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/misc
+INFO: Copied 7 verilog file(s) to /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/hdl/verilog
+INFO: Copied 5 vhdl file(s) to /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/drivers
+INFO: Import ports from HDL: /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/hdl/vhdl/mm2s.vhd (mm2s)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/2025.2/data/ip'.
+INFO: Add axi4stream interface s
+INFO: Add axi4full interface m_axi_gmem
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/component.xml
+Generating XO file: mm2s.xo in directory /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/..
+Running: package_xo -xo_path /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/../mm2s.xo -kernel_xml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/kernel.xml -kernel_name mm2s -ip_directory /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip -kernel_files /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/../../../vd100-aie-ma-crossover/src/mm2s.cpp -hls_directory /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/misc/hls_files -kernel_json /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/hls_data.json
+INFO: Created IP archive /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/xilinx_com_hls_mm2s_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 11 14:51:46 2026...

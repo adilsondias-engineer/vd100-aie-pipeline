@@ -1,0 +1,6 @@
+
+Family       : versal
+Device       : xcve2302
+Package      : -sfva784
+Speed Grade  : -1LP-e-S
+Clock Period : 10

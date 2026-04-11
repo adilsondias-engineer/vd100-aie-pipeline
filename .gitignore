@@ -1,0 +1,39 @@
+# Ignore build output directory
+/build
+/export
+
+# Ignore object files and dependent files
+.o
+.d
+
+#Ignore logs folder and log files
+/logs
+.log
+
+#Ignore lock files
+.lock
+
+.bin
+.pdi
+.vitisWorkspace.json
+
+_ide/logs
+_ide/.wsdata
+
+# Vivado generated
+vivado/aie-pipeline/*.jou
+vivado/aie-pipeline/*.log
+vivado/aie-pipeline/aie-pipeline.runs/
+vivado/aie-pipeline/aie-pipeline.sim/
+vivado/aie-pipeline/aie-pipeline.cache/
+vivado/aie-pipeline/.Xil/
+
+# Vitis build artifacts
+vitis/*/build/
+vitis/*/output/
+vitis/**/.vitis/
+vitis/**/AIECompiler.log
+
+# Keep sources only
+!vivado/aie-pipeline/aie-pipeline.srcs/
+!vivado/aie-pipeline/ip_repo/

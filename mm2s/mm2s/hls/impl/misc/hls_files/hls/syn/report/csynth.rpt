@@ -1,0 +1,163 @@
+
+
+================================================================
+== Synthesis Summary Report of 'mm2s'
+================================================================
++ General Information: 
+    * Date:           Sat Apr 11 14:51:37 2026
+    * Version:        2025.2 (Build 6295257 on Nov 14 2025)
+    * Project:        mm2s
+    * Solution:       hls (Vitis Kernel Flow Target)
+    * Product family: versalaiedge
+    * Target device:  xcve2302-sfva784-1LP-e-S
+    
+
+* Performance & Resource Estimates: 
++--------------------+------+---------------+----------+---------+------+----------+---------+-----+------+---------+----+------------+------------+-----+
+|       Modules      | Issue|               | Iteration|         | Trip |          |    Latency    |      |         |    |            |            |     |
+|       & Loops      | Type | Violation Type|  Latency | Interval| Count| Pipelined| (cycles)| (ns)| Slack|  BRAM   | DSP|     FF     |     LUT    | URAM|
++--------------------+------+---------------+----------+---------+------+----------+---------+-----+------+---------+----+------------+------------+-----+
+|+ mm2s              |     -|              -|         -|        0|     -|    rewind|        -|    -|  4.77|  1 (~0%)|   -|  1555 (~0%)|  1434 (~0%)|    -|
+| o VITIS_LOOP_23_1  |     -|              -|        77|        1|     -|       yes|        -|    -|  7.30|        -|   -|           -|           -|    -|
++--------------------+------+---------------+----------+---------+------+----------+---------+-----+------+---------+----+------------+------------+-----+
+    Name Prefix: '+' for module, 'o' for loop, '*' for dataflow
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_ONLY  | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=1            |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | mem_1    | 0x10   | 32    | W      | Data signal of mem               |                                                                                    |
+| s_axi_control | mem_2    | 0x14   | 32    | W      | Data signal of mem               |                                                                                    |
+| s_axi_control | size     | 0x1c   | 32    | W      | Data signal of size              |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* AXIS
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface | Direction | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| s         | out       | both          | 32    | 4     | 1     | 1      | 4     | 1      |
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-----------------------------------------------------------------------------+
+| Argument | Direction | Datatype                                                                    |
++----------+-----------+-----------------------------------------------------------------------------+
+| mem      | in        | ap_int<32>*                                                                 |
+| s        | out       | stream<hls::axis<ap_int<32>, 0UL, 0UL, 0UL, (unsigned char)'8', false>, 0>& |
+| size     | in        | int                                                                         |
++----------+-----------+-----------------------------------------------------------------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+---------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                         |
++----------+---------------+-----------+----------+---------------------------------+
+| mem      | m_axi_gmem    | interface |          | channel=0                       |
+| mem      | s_axi_control | register  | offset   | name=mem_1 offset=0x10 range=32 |
+| mem      | s_axi_control | register  | offset   | name=mem_2 offset=0x14 range=32 |
+| s        | s             | interface |          |                                 |
+| size     | s_axi_control | register  |          | name=size offset=0x1c range=32  |
++----------+---------------+-----------+----------+---------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+-----------------+----------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop            | Loop Location                                |
++--------------+-----------+----------+-------+-----------------+----------------------------------------------+
+| m_axi_gmem   | read      | variable | 32    | VITIS_LOOP_23_1 | ../vd100-aie-ma-crossover/src/mm2s.cpp:23:19 |
++--------------+-----------+----------+-------+-----------------+----------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+----------------------------------------------+-----------+--------------+----------+-----------------+----------------------------------------------+------------+------------------------------------------------+
+| HW Interface | Variable | Access Location                              | Direction | Burst Status | Length   | Loop            | Loop Location                                | Resolution | Problem                                        |
++--------------+----------+----------------------------------------------+-----------+--------------+----------+-----------------+----------------------------------------------+------------+------------------------------------------------+
+| m_axi_gmem   | mem      | ../vd100-aie-ma-crossover/src/mm2s.cpp:26:10 | read      | Widen Fail   |          | VITIS_LOOP_23_1 | ../vd100-aie-ma-crossover/src/mm2s.cpp:23:19 | 214-234    | Sequential access length is not divisible by 2 |
+| m_axi_gmem   | mem      | ../vd100-aie-ma-crossover/src/mm2s.cpp:26:10 | read      | Inferred     | variable | VITIS_LOOP_23_1 | ../vd100-aie-ma-crossover/src/mm2s.cpp:23:19 |            |                                                |
++--------------+----------+----------------------------------------------+-----------+--------------+----------+-----------------+----------------------------------------------+------------+------------------------------------------------+
+
+    * Resolution URL: docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------+-----+--------+-------------+--------+----------+---------+
+| Name                    | DSP | Pragma | Variable    | Op     | Impl     | Latency |
++-------------------------+-----+--------+-------------+--------+----------+---------+
+| + mm2s                  | 0   |        |             |        |          |         |
+|   icmp_ln23_fu_159_p2   |     |        | icmp_ln23   | setgt  | auto     | 0       |
+|   empty_fu_169_p3       |     |        | empty       | select | auto_sel | 0       |
+|   icmp_ln23_1_fu_193_p2 |     |        | icmp_ln23_1 | setlt  | auto     | 0       |
+|   add_ln23_fu_199_p2    |     |        | add_ln23    | add    | fabric   | 0       |
++-------------------------+-----+--------+-------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + mm2s            |           |           | 1    | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface | m_axi     | 1    |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+-----------------------------------------+-----------------------------------------------------+
+| Type      | Options                                 | Location                                            |
++-----------+-----------------------------------------+-----------------------------------------------------+
+| INTERFACE | m_axi port=mem offset=slave bundle=gmem | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:15) |
+| INTERFACE | axis port=s                             | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:17) |
+| INTERFACE | s_axilite port=mem bundle=control       | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:19) |
+| INTERFACE | s_axilite port=size bundle=control      | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:20) |
+| INTERFACE | s_axilite port=return bundle=control    | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:21) |
+| PIPELINE  | ii=1                                    | in mm2s (../vd100-aie-ma-crossover/src/mm2s.cpp:24) |
++-----------+-----------------------------------------+-----------------------------------------------------+
+
+

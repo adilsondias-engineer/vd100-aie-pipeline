@@ -1,0 +1,156 @@
+<ENTRY>
+{
+ "thisFile": "/work/versal/vd100-aie-pipeline/mm2s/mm2s/mm2s.hlsrun_package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat Apr 11 14:51:40 2026",
+ "timestampMillis": "1775883100844",
+ "buildStep": {
+  "cmdId": "8d571830-74a9-4b4c-879e-609c1d70cd9a",
+  "name": "vitis-run",
+  "logFile": "/work/versal/vd100-aie-pipeline/mm2s/mm2s/logs/mm2s.steps.log",
+  "commandLine": "/tools/Xilinx/2025.2/Vitis/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /work/versal/vd100-aie-pipeline/mm2s/hls_config.cfg --work_dir mm2s ",
+  "args": [
+   "--mode",
+   "hls",
+   "--package",
+   "--config",
+   "/work/versal/vd100-aie-pipeline/mm2s/hls_config.cfg",
+   "--work_dir",
+   "mm2s"
+  ],
+  "iniFiles": [],
+  "cwd": "/work/versal/vd100-aie-pipeline/mm2s"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Apr 11 14:51:40 2026",
+ "timestampMillis": "1775883100844",
+ "status": {
+  "cmdId": "8d571830-74a9-4b4c-879e-609c1d70cd9a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat Apr 11 14:51:43 2026",
+ "timestampMillis": "1775883103035",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_XO",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "mm2s",
+     "file": "/work/versal/vd100-aie-pipeline/mm2s/mm2s/mm2s.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Apr 11 14:51:43 2026",
+ "timestampMillis": "1775883103035",
+ "buildStep": {
+  "cmdId": "3bc6a8b0-7117-48de-85dd-a601008410a7",
+  "name": "",
+  "logFile": "/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/work/versal/vd100-aie-pipeline/mm2s"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Apr 11 14:51:43 2026",
+ "timestampMillis": "1775883103036",
+ "status": {
+  "cmdId": "3bc6a8b0-7117-48de-85dd-a601008410a7",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Apr 11 14:51:46 2026",
+ "timestampMillis": "1775883106500",
+ "status": {
+  "cmdId": "3bc6a8b0-7117-48de-85dd-a601008410a7",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Apr 11 14:51:46 2026",
+ "timestampMillis": "1775883106588",
+ "status": {
+  "cmdId": "8d571830-74a9-4b4c-879e-609c1d70cd9a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Apr 11 14:51:46 2026",
+ "timestampMillis": "1775883106588",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Apr 11 14:51:46 2026",
+ "timestampMillis": "1775883106588",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

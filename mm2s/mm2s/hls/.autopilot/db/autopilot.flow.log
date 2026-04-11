@@ -1,0 +1,669 @@
+Execute       source -notrace -encoding utf-8 /tools/Xilinx/2025.2/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /tools/Xilinx/2025.2/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls opened at Sat Apr 11 14:51:24 AEST 2026
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-2174@%s%s component hls_config.cfg 
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+Execute       apply_ini hls_config.cfg 
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=../vd100-aie-ma-crossover/src/mm2s.cpp' from hls_config.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../vd100-aie-ma-crossover/src/mm2s.cpp' from hls_config.cfg(8)
+Execute         add_files /work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp 
+INFO: [HLS 200-10] Adding design file '/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=mm2s' from hls_config.cfg(7) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=mm2s' from hls_config.cfg(7)
+Execute         set_top mm2s 
+Execute         send_msg_by_id INFO @200-1465@%s 'flow_target=vitis' from hls_config.cfg(4) 
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from hls_config.cfg(4)
+Execute         send_msg_by_id INFO @200-1505@%s%s  vitis 
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_latency=64 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_latency=64
+Execute         config_interface -m_axi_latency=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_alignment_byte_size=64 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+Execute         config_interface -m_axi_alignment_byte_size=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_max_widen_bitwidth=512 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+Execute         config_interface -m_axi_max_widen_bitwidth=512 
+INFO-FLOW: Setting macro_cmd flow_target=vitis configuration: config_interface -default_interface=kernel
+Execute         config_interface -default_interface=kernel 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_rtl -register_reset_num=3 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_rtl -register_reset_num=3
+Execute         config_rtl -register_reset_num=3 
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xcve2302-sfva784-1LP-e-S' from hls_config.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xcve2302-sfva784-1LP-e-S' from hls_config.cfg(1)
+Execute         set_part xcve2302-sfva784-1LP-e-S 
+Execute           create_platform xcve2302-sfva784-1LP-e-S -board  
+DBG:HLSDevice: Trying to load device library: /tools/Xilinx/2025.2/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/2025.2/Vivado/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcve2302-sfva784-1LP-e-S'
+Command           create_platform done; 0.83 sec.
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute           ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+Execute           config_compile -quiet -complex-mul-dsp=1 
+Command         set_part done; 0.89 sec.
+Execute         send_msg_by_id INFO @200-1465@%s 'package.output.format=xo' from hls_config.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=xo' from hls_config.cfg(5)
+Execute         config_export -format=xo 
+Command       apply_ini done; 0.9 sec.
+Execute       write_component -config /work/versal/vd100-aie-pipeline/mm2s/hls_config.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /work/versal/vd100-aie-pipeline/mm2s/mm2s/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /work/versal/vd100-aie-pipeline/mm2s/mm2s/vitis-comp.json
+Command     open_solution done; 0.91 sec.
+Command   open_component done; 0.91 sec.
+Execute   apply_ini /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file csynth 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute   csynth_design 
+Execute     AP::msg_collection_file -open /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/be_messages.xml 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+INFO-FLOW: run_clang mm2s.cpp.xilinx-performance-pragma-detector exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/xilinx-performance-pragma-detector ../vd100-aie-ma-crossover/src/mm2s.cpp -- -fhls -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP58_PRIMARY__ -target fpga64-xilinx-linux-gnu -I /usr/include/x86_64-linux-gnu --gcc-toolchain=/tools/Xilinx/2025.2/Vitis/tps/lnx64/gcc-8.3.0 -hls-platform-db-name=/tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=versal_slow -device-resource-info=BRAM_310.000000_DSP_464.000000_FF_300544.000000_LUT_150272.000000_SLICE_18784.000000_URAM_155.000000 -device-name-info=xcve2302-sfva784-1LP-e-S > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.cpp.xilinx-performance-pragma-detector.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.cpp.xilinx-performance-pragma-detector.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=1
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 1.54 seconds. CPU system time: 0.27 seconds. Elapsed time: 1.72 seconds; current allocated memory: 625.707 MB.
+Execute       send_msg_by_id INFO @200-2191@%s%s C-Synthesis clang-16 
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+Execute       set_directive_top mm2s -name=mm2s 
+INFO: [HLS 200-10] Analyzing design file '../vd100-aie-ma-crossover/src/mm2s.cpp' ... 
+INFO-FLOW: Compiling one TU...
+INFO-FLOW: Handling ../vd100-aie-ma-crossover/src/mm2s.cpp as C++
+Execute       ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+INFO-FLOW: run_clang mm2s.cpp.clang exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang ../vd100-aie-ma-crossover/src/mm2s.cpp -foptimization-record-file=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info --gcc-toolchain=/tools/Xilinx/2025.2/Vitis/tps/lnx64/gcc-8.3.0 -fhls -fno-exceptions -insert-hls-directive=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/all.directive.json -hls-directive-location -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Xclang -no-opaque-pointers -Xclang -fmerge-all-constants -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -hls-clock-period=10 -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP58_PRIMARY__ -I /usr/include/x86_64-linux-gnu -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=versal_slow -device-resource-info=BRAM_310.000000_DSP_464.000000_FF_300544.000000_LUT_150272.000000_SLICE_18784.000000_URAM_155.000000 -device-name-info=xcve2302-sfva784-1LP-e-S > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.cpp.clang.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.cpp.clang.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO-FLOW: Done: GCC PP 39 time: 0.1 seconds 
+INFO-FLOW: Source syntax check for synthesis
+INFO-FLOW: run_clang clang exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang -foptimization-record-file=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=versal_slow -device-resource-info=BRAM_310.000000_DSP_464.000000_FF_300544.000000_LUT_150272.000000_SLICE_18784.000000_URAM_155.000000 -device-name-info=xcve2302-sfva784-1LP-e-S > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/clang.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/clang.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+Execute       clang_tidy xilinx-systemc-detector -desc systemc-detector /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp  -target fpga -directive=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/.systemc_flag -fix-errors /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.32 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute       clang_tidy xilinx-directive2pragma -desc directive2pragma /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp  -target fpga -directive=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/all.directive.json -fix-errors /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.49 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 0.5 seconds 
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
+Execute       clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp  -target fpga 
+INFO-FLOW: run_clang loop-label exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang-tidy -export-fixes=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang-tidy.loop-label.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang-tidy.loop-label.err.log
+Execute         source /tools/Xilinx/2025.2/Vitis/tps/tcl/tcllib2.0/yaml/yaml.tcl 
+Execute           source /tools/Xilinx/2025.2/Vitis/tps/tcl/tcllib2.0/cmdline/cmdline.tcl 
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=28
+Command       clang_tidy done; 0.6 sec.
+INFO-FLOW: run_clang mm2s.pp.0.cpp.xilinx-dataflow-lawyer exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/xilinx-dataflow-lawyer -export-fixes=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -- - -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.xilinx-dataflow-lawyer.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+Execute       ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+INFO-FLOW: compiling source code to llvm bc
+INFO-FLOW: run_clang mm2s.pp.0.cpp.clang exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/clang -foptimization-record-file=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -flto -fno-exceptions -Wno-error=c++11-narrowing -fno-limit-debug-info -fhls -hls-emit-hint-scope /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Xclang -no-opaque-pointers -Xclang -fmerge-all-constants -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -hls-clock-period=10 -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot -I /tools/Xilinx/2025.2/Vitis/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP58_PRIMARY__ -g -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pre.g.bc -hls-platform-db-name=/tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=versal_slow -device-resource-info=BRAM_310.000000_DSP_464.000000_FF_300544.000000_LUT_150272.000000_SLICE_18784.000000_URAM_155.000000 -device-name-info=xcve2302-sfva784-1LP-e-S > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pp.0.cpp.clang.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO-FLOW: converting llvm 16.0.4 bc to downstrem bc
+INFO-FLOW: run_clang mm2s.bc.llvm-converter exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-16/bin/llvm-converter -opaque-pointers=0 /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.pre.g.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bc.llvm-converter.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bc.llvm-converter.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.27 seconds. CPU system time: 0.3 seconds. Elapsed time: 2.58 seconds; current allocated memory: 627.102 MB.
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute       run_link_or_opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bc 
+INFO-FLOW: run_clang a.g.ld.0.bc.llvm-link exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc.llvm-link.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc.llvm-link.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+Execute       run_link_or_opt -opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+INFO-FLOW: run_clang a.g.ld.1.lower.bc.opt exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.diag.yml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc.opt.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds 
+INFO-FLOW: Linking math bc lib
+Execute       run_link_or_opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/2025.2/Vitis/lnx64/lib/libhlsm_39.bc /tools/Xilinx/2025.2/Vitis/lnx64/lib/libhlsmc++_39.bc 
+INFO-FLOW: run_clang a.g.ld.2.m1.bc.llvm-link exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/2025.2/Vitis/lnx64/lib/libhlsm_39.bc /tools/Xilinx/2025.2/Vitis/lnx64/lib/libhlsmc++_39.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+Command       run_link_or_opt done; 0.7 sec.
+Execute       run_link_or_opt -opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=mm2s -reflow-float-conversion 
+INFO-FLOW: run_clang a.g.ld.3.fpc.bc.opt exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=mm2s -reflow-float-conversion -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds 
+Command       run_link_or_opt done; 0.29 sec.
+Execute       run_link_or_opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/2025.2/Vitis/lnx64/lib/libfloatconversion_39.bc 
+INFO-FLOW: run_clang a.g.ld.4.m2.bc.llvm-link exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/llvm-link /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/2025.2/Vitis/lnx64/lib/libfloatconversion_39.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+Execute       run_link_or_opt -opt -out /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc -args /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=mm2s 
+INFO-FLOW: run_clang a.g.ld.5.gdce.bc.opt exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll|inline -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc.opt.diag.yml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc > /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc.opt.out.log 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc.opt.err.log
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=0
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds 
+Execute       send_msg_by_id INFO @200-777@%s Vitis 
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+Execute       is_m_axi_addr64 
+INFO-FLOW: Doing LTO.
+INFO-FLOW: run_clang reflow (background poll_ms 5000) exec: /tools/Xilinx/2025.2/Vitis/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc.clang.reflow.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll|inline -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=mm2s -mllvm -hls-db-dir -mllvm /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml -mllvm -top-io-mapping-info=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=true -mllvm -default-maxi-offset=slave -mllvm -reflow-unroll-size-threshold=10000 -mllvm -reflow-unroll-cost-threshold=1000000 -mllvm -maxi-latency=64 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=512 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -reflow-basic-block-instr-threshold=200000 -mllvm -reflow-auto-pipeline-threshold=64 -mllvm -reflow-enable-maxi-auto-id-channel=0 -mllvm -reflow-bdd-simplify-threshold=1048576 -mllvm -reflow-fanout-threshold=16 -mllvm -reflow-force-aggressive-unroll=0 -mllvm -reflow-aggressive-unroll-adjust-factor=1.000000 -mllvm -reflow-complete-threshold=4 -mllvm -reflow-array-promotion-threshold=64 -mllvm -reflow-enable-critical-path-for-performance=1 -mllvm -assume-maxi-align=64 -mllvm -reflow-enable-dataflow-strict-mode-checking=1 -ftime-report -mllvm -time-passes -mllvm -reflow-auto-array-partition-mode=default -mllvm -reflow-enable-auto-small-array-partition=true -mllvm -reflow-enable-auto-array-promotion=true -mllvm -reflow-enable-auto-array-partition-for-flatten=true -mllvm -reflow-enable-auto-parallel-performance-driven=true -mllvm -reflow-enable-partition-for-automation=true -mllvm -reflow-aggregate-bitwidth-threshold=4096 -mllvm -reflow-reserved-saxilite-registers=0 -mllvm -enable-reflow-auto-loop-pipeline -mllvm -reflow-max-unroll-threshold=409600 -mllvm -auto-unroll-tripcount-threshold=0 -mllvm -reflow-assume-no-address-wrap=true -mllvm -reflow-enable-occurrence-inference=true -mllvm -reflow-emit-hint-scope=true -mllvm -reflow-enable-codegen-with-if=true -mllvm -reflow-enable-dataflow-canon=true -mllvm -reflow-enable-dataflow-canon2=true -mllvm -reflow-dump-extra-complexity-metric=true -mllvm -reflow-enable-dse-loop-nest-extraction=false -mllvm -hls -mllvm -disable-inlined-alloca-merging=true -mllvm -enable-reflow-vitis-flow-setting=true -mllvm -default-clock-period=10 -mllvm -use_read_first_ram_in_loop=1 -mllvm -default-clock-uncertainty=2.7 -x ir /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.5.gdce.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.lto.bc -hls-platform-db-name=/tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/platform.db -hls-platform-name=versal_slow -device-resource-info=BRAM_310.000000_DSP_464.000000_FF_300544.000000_LUT_150272.000000_SLICE_18784.000000_URAM_155.000000 -device-name-info=xcve2302-sfva784-1LP-e-S 2> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.ld.0.bc.clang.reflow.err.log bg_poll_cmd: ::AP::poll_clang_39_closed_source
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 166 Compile/Link (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 166 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 40 Unroll/Inline (step 1) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 40 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 31 Unroll/Inline (step 2) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 31 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 29 Unroll/Inline (step 3) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 29 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 29 Unroll/Inline (step 4) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 29 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 28 Array/Struct (step 1) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 28 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 28 Array/Struct (step 2) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 28 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 28 Array/Struct (step 3) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 28 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 28 Array/Struct (step 4) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 28 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 73 Array/Struct (step 5) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 73 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 66 Performance (step 1) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 66 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 59 Performance (step 2) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 59 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 52 Performance (step 3) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 52 Performance (step 4) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 52 HW Transforms (step 1) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 52 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+Execute       send_msg_by_id INFO @200-1995@%s%s%s 42 HW Transforms (step 2) (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2) 
+INFO: [HLS 200-1995] There were 42 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_23_1'(../vd100-aie-ma-crossover/src/mm2s.cpp:23:19) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../vd100-aie-ma-crossover/src/mm2s.cpp:23:19)
+INFO-FLOW: run_clang result=success num-err-msgs=0 num-stderr-lines=18
+INFO-FLOW: DBG:PUTS: copy_raw_kernel_xml ap_link_39: copying raw kernel.xml: /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml -> /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/kernel.internal.xml
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.06 seconds. CPU system time: 0.19 seconds. Elapsed time: 6.1 seconds; current allocated memory: 628.863 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 628.863 MB.
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -reassociate -gvn -reassociate -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top mm2s -deadargelim -mem2reg -instcombine -dce -presyn-prepare -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -promote-dbg-pointer -norm-name /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.0.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 628.984 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -directive-preproc -mem2reg -dse -dce -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -directive-preproc -mem2reg -dse -dce -globaldce /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.1.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.2.prechk.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 629.000 MB.
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.g.1.bc to /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db -interface-port-rename -directive-preproc -mem2reg -dse -dce -scalarrepl -norm-name -deadargelim -dce -hls-dead-arg-elim -deadargelim -mem2reg -instcombine -dce -simplifycfg -dce -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -loop-simplify -loop-bound -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -prepare-dynamic-array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -lcssa -loop-simplify -phi-select-elim -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -duplicate-dataflow-processes -check-dataflow-syntax -legalize-stream-variable -globaldce -extract-subproc -global-constprop -deadargelim -globaldce -legalize-global -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -canonicalize-dataflow -directive-preproc -dce -globaldce -scalar-preprocessing -scalar-propagation2 -scalar-stream -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -clean-array-spec -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -hls-display -norm-name /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.1.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.1.tmp.bc -f 
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -barrier -norm-name /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.1.tmp.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 650.594 MB.
+Execute         transform -hls -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -loop-sink-hoist -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg-lite -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -inst-simplify -cfgopt -simplifycfg-lite -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -deadargelim -globaldce -mem2reg -bram-byte-enable -inst-simplify -inst-rectify -instcombine -adce -deadargelim -load-elim -read-loop-dep -loop-simplify -loop-rewind-sink-hoist -loop-outline -hls-dead-arg-elim -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable-spec-prop -mul2addshift -deadargelim -inst-simplify -dce -mem2reg -instcombine -gvn -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg-lite -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -gvn -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg-lite -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg-lite -loop-simplify -mergereturn -inst-simplify -inst-rectify -globaldce -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -share-scalar-alloca -deadargelim -dce -check-stream -norm-name -legalize -inst-clarity -bitwidth -dce -validate-dataflow -dump-loop-dep-to-ir -check-all-ssdm -drop-inferred-ii -dump-complexity-metric /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.2.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Execute           AP::auto_get_db
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -cdfg-build /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.3.bc -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 650.594 MB.
+INFO-FLOW: Finish building internal data model.
+Command     elaborate done; 8.73 sec.
+Execute     ap_eval exec zip -j /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/dut.hcp $dbDir/a.o.3.bc $dbDir/${topname}.rtl_wrap.cfg.tcl $dbDir/apatb_${topname}.cpp $dbDir/apatb_${topname}_util.cpp $dbDir/apatb_${topname}_ir.ll $dbDir/mapper_${topname}.cpp $dbDir/top-io-fe.xml $dbDir/kernel.internal.xml $workdir/../hls.app 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design AP::SynTopModule=mm2s
+INFO: [HLS 200-10] Synthesizing 'mm2s' ...
+Execute     ap_set_top_model mm2s 
+Execute     get_model_list mm2s -filter all-wo-channel -topdown 
+Execute     preproc_iomode -model mm2s 
+Execute     create_clock 
+Execute       ap_set_clock -name default -period 10 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     get_model_list mm2s -filter all-wo-channel 
+INFO-FLOW: Model list for configure: mm2s
+INFO-FLOW: Configuring Module : mm2s ...
+Execute     set_default_model mm2s 
+Execute     apply_spec_resource_limit mm2s 
+INFO-FLOW: Model list for preprocess: mm2s
+INFO-FLOW: Preprocessing Module: mm2s ...
+Execute     set_default_model mm2s 
+Execute     cdfg_preprocess -model mm2s 
+Execute     rtl_gen_preprocess mm2s 
+INFO-FLOW: Model list for synthesis: mm2s
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mm2s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute     set_default_model mm2s 
+Execute     schedule -model mm2s 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 77, loop 'VITIS_LOOP_23_1'
+INFO: [SCHED 204-11] Finished scheduling.
+Command     schedule done; 0.28 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.3 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.29 seconds; current allocated memory: 650.594 MB.
+Execute     syn_report -verbosereport -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.verbose.sched.rpt 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Command     syn_report done; 0.63 sec.
+Execute     db_write -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.sched.adb -f 
+INFO-FLOW: Finish scheduling mm2s.
+Execute     set_default_model mm2s 
+Execute     bind -model mm2s 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.67 seconds. CPU system time: 0 seconds. Elapsed time: 0.68 seconds; current allocated memory: 650.594 MB.
+Execute     syn_report -verbosereport -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.verbose.bind.rpt 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Command     syn_report done; 0.62 sec.
+Execute     db_write -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.bind.adb -f 
+INFO-FLOW: Finish binding mm2s.
+Execute     get_model_list mm2s -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute     rtl_gen_preprocess mm2s 
+INFO-FLOW: Model list for RTL generation: mm2s
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mm2s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute     create_rtl_model mm2s -top_prefix  -sub_prefix mm2s_ -mg_file /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.tcl 
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/mem' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/s_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/s_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/s_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/s_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'mm2s/size' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'mm2s' to 's_axilite & ap_ctrl_chain'.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'mm2s' pipeline 'VITIS_LOOP_23_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Bundling port 'mem', 'size' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mm2s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.66 seconds. CPU system time: 0 seconds. Elapsed time: 0.66 seconds; current allocated memory: 650.594 MB.
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     gen_rtl mm2s -istop -style xilinx -f -lang vhdl -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/vhdl/mm2s 
+Execute     gen_rtl mm2s -istop -style xilinx -f -lang vlog -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/verilog/mm2s 
+Execute     syn_report -csynth -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/mm2s_csynth.rpt 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Execute     syn_report -rtlxml -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/mm2s_csynth.xml 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Execute     syn_report -verbosereport -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.verbose.rpt 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Command     syn_report done; 0.66 sec.
+Execute     db_write -model mm2s -f -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.adb 
+Execute     db_write -model mm2s -bindview -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/design.bindinfo.xml 
+Execute     gen_tb_info mm2s -p /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s 
+Execute     export_constraint_db -f -tool general -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.constraint.tcl 
+Execute     syn_report -designview -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.design.xml 
+Execute     syn_report -csynthDesign -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth.rpt -MHOut /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/kernel_module_hierarchy.tcl 
+Execute       list_part -family xcve2302-sfva784-1LP-e-S 
+Execute         ap_family_info -name xcve2302-sfva784-1LP-e-S -data names 
+Execute         ap_part_info -quiet -name xcve2302-sfva784-1LP-e-S -data family 
+Execute     syn_report -wcfg -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s_dataflow_ana.wcfg 
+Execute     syn_report -protoinst -model mm2s -o /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.protoinst 
+Execute     sc_get_clocks mm2s 
+Execute     sc_get_portdomain mm2s 
+INFO-FLOW: Model list for RTL component generation: mm2s
+INFO-FLOW: Handling components in module [mm2s] ... 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.tcl 
+INFO-FLOW: Found component mm2s_gmem_m_axi.
+INFO-FLOW: Append model mm2s_gmem_m_axi
+INFO-FLOW: Found component mm2s_control_s_axi.
+INFO-FLOW: Append model mm2s_control_s_axi
+INFO-FLOW: Found component mm2s_regslice_both.
+INFO-FLOW: Append model mm2s_regslice_both
+INFO-FLOW: Found component mm2s_regslice_both.
+INFO-FLOW: Append model mm2s_regslice_both
+INFO-FLOW: Found component mm2s_regslice_both.
+INFO-FLOW: Append model mm2s_regslice_both
+INFO-FLOW: Found component mm2s_regslice_both.
+INFO-FLOW: Append model mm2s_regslice_both
+INFO-FLOW: Found component mm2s_flow_control_loop_pipe.
+INFO-FLOW: Append model mm2s_flow_control_loop_pipe
+INFO-FLOW: Append model mm2s
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: mm2s_gmem_m_axi mm2s_control_s_axi mm2s_regslice_both mm2s_regslice_both mm2s_regslice_both mm2s_regslice_both mm2s_flow_control_loop_pipe mm2s
+INFO-FLOW: Generating /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/autopilot.rtl.models.txt file...
+INFO-FLOW: To file: write model mm2s_gmem_m_axi
+INFO-FLOW: To file: write model mm2s_control_s_axi
+INFO-FLOW: To file: write model mm2s_regslice_both
+INFO-FLOW: To file: write model mm2s_regslice_both
+INFO-FLOW: To file: write model mm2s_regslice_both
+INFO-FLOW: To file: write model mm2s_regslice_both
+INFO-FLOW: To file: write model mm2s_flow_control_loop_pipe
+INFO-FLOW: To file: write model mm2s
+INFO-FLOW: Generating /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/autopilot.rtl.models.tcl file...
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute     AP::msg_collection_file -close 
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate_csynth_design
+INFO-FLOW: DBG:PUTS: read_platform_lib /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/common.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/interface.gen 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_family_info -name versalprimees1 -data parts 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:PUTS:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::generate_ip_cores gen_sim_model='1' gen_fp_models='0' gen_for_export='0' dstSCDir='' dstVhdlDir='/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/vhdl' dstVlogDir='/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/vlog' tclDir='/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db' modelList='mm2s_gmem_m_axi
+mm2s_control_s_axi
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_flow_control_loop_pipe
+mm2s
+' expOnly='0'
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.tcl 
+Execute       source ./control.slave.tcl 
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.04 seconds; current allocated memory: 650.594 MB.
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::create_csynth_xml bind_info_var='bind_info' RtlSubPrefix='mm2s_' outfile=''
+INFO-FLOW: Running: create_csynth_xml read xml data
+INFO-FLOW: Done: create_csynth_xml read xml data time: 0 seconds 
+INFO-FLOW: create_csynth_xml: all_module_nodes count=1
+INFO-FLOW: Running: create_csynth_xml bind info
+INFO-FLOW: create_csynth_xml: all_bind_nodes count=7
+INFO-FLOW: Done: create_csynth_xml bind info time: 0 seconds 
+INFO-FLOW: create_csynth_xml: bind_instances counts: modules=1 instances=6
+INFO-FLOW: Running: create_csynth_xml update csynth_xml_module_hier
+INFO-FLOW: Done: create_csynth_xml update csynth_xml_module_hier time: 0 seconds 
+INFO-FLOW: create_csynth_xml: csynth_xml_module_hier max_depth=2
+INFO-FLOW: Running: create_csynth_xml gen bind_report_dict
+INFO-FLOW: Done: create_csynth_xml gen bind_report_dict time: 0 seconds 
+INFO-FLOW: Running: create_csynth_xml config info
+INFO-FLOW: Done: create_csynth_xml config info time: 0.1 seconds 
+INFO-FLOW: Running: create_csynth_xml write xml
+INFO-FLOW: Done: create_csynth_xml write xml time: 0 seconds 
+INFO-FLOW: DBG:PUTS:      create_csynth_xml wrote csynth_xml=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/report/csynth.xml
+INFO-FLOW: Running: generate_json
+INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='0' modelList='mm2s_gmem_m_axi
+mm2s_control_s_axi
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_flow_control_loop_pipe
+mm2s
+' rtl_lang='both' bootstrap_tcl='false' outdir='' outfilename=''
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/top-io-be.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.constraint.tcl 
+Execute     sc_get_clocks mm2s 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /tools/Xilinx/2025.2/Vitis/tps/tcl/tcllib2.0/fileutil/fileutil.tcl 
+INFO-FLOW: Done: generate_json time: 0.1 seconds 
+INFO-FLOW: Running: add_csynth_report_sections
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::add_csynth_report_sections bind_info_dict='adapter_nodes {{BINDTYPE adapter ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA {} RTLNAME control_s_axi_U SOURCE {} VARIABLE {} LOOP {} BUNDLEDNAME control DSP 0 BRAM 0 URAM 0 STORAGESUBTYPE s_axilite STORAGESIZE {} STORAGEUSAGE interface DISPNAME {bind_adapter }} {BINDTYPE adapter ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA {} RTLNAME gmem_m_axi_U SOURCE {} VARIABLE {} LOOP {} BUNDLEDNAME gmem DSP 0 BRAM 1 URAM 0 STORAGESUBTYPE m_axi STORAGESIZE {} STORAGEUSAGE interface DISPNAME {bind_adapter }}} cache_nodes {} report_dict {TOPINST mm2s MODULE2INSTS {mm2s mm2s} INST2MODULE {mm2s mm2s} INSTDATA {mm2s {DEPTH 1 CHILDREN {}}} MODULEDATA {mm2s {BINDINFO {{BINDTYPE op ID {} IMPL auto LATENCY 0 OPTYPE setgt PRAGMA {} RTLNAME icmp_ln23_fu_159_p2 SOURCE ../vd100-aie-ma-crossover/src/mm2s.cpp:23 VARIABLE icmp_ln23 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 STORAGESUBTYPE {} DISPNAME {bind_op setgt} VISIBLE false} {BINDTYPE op ID {} IMPL auto_sel LATENCY 0 OPTYPE select PRAGMA {} RTLNAME empty_fu_169_p3 SOURCE ../vd100-aie-ma-crossover/src/mm2s.cpp:23 VARIABLE empty LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 STORAGESUBTYPE {} DISPNAME {bind_op select} VISIBLE false} {BINDTYPE op ID {} IMPL auto LATENCY 0 OPTYPE setlt PRAGMA {} RTLNAME icmp_ln23_1_fu_193_p2 SOURCE ../vd100-aie-ma-crossover/src/mm2s.cpp:23 VARIABLE icmp_ln23_1 LOOP VITIS_LOOP_23_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 STORAGESUBTYPE {} DISPNAME {bind_op setlt} VISIBLE false} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln23_fu_199_p2 SOURCE ../vd100-aie-ma-crossover/src/mm2s.cpp:23 VARIABLE add_ln23 LOOP VITIS_LOOP_23_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 STORAGESUBTYPE {} DISPNAME {bind_op add} VISIBLE true}} AREA {DSP 0 BRAM 1 URAM 0}}}}'
+INFO-FLOW: DBG:PUTS:      update_csynth_reports json2rpt_hw_sw_interfaces
+Execute     send_msg_by_id INFO @200-1603@%s  and missed bursts 
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO-FLOW: Running: gen_csynth_sec_pragma
+INFO-FLOW: Done: gen_csynth_sec_pragma time: 0 seconds 
+Execute     send_msg_by_id INFO @200-2225@%s /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/inferred_directives.ini 
+INFO: [HLS 200-2225] Wrote inferred directives to file /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/syn/inferred_directives.ini
+INFO-FLOW: DBG:PUTS:      update_csynth_reports wrote xml
+INFO-FLOW: DBG:PUTS:      update_csynth_reports appended to csynth rpt file
+INFO-FLOW: Done: add_csynth_report_sections time: 0 seconds 
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 650.594 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for mm2s.
+INFO: [VLOG 209-307] Generating Verilog RTL for mm2s.
+Execute     syn_report -model mm2s -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 395.44 MHz
+Execute     AP::msg_collection_file -close 
+Command   csynth_design done; 11.97 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 
+Execute       source -notrace -encoding utf-8 /tools/Xilinx/2025.2/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /tools/Xilinx/2025.2/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls opened at Sat Apr 11 14:51:42 AEST 2026
+Execute       source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute       set_part xcve2302-sfva784-1LP-e-S 
+Execute         create_platform xcve2302-sfva784-1LP-e-S -board  
+DBG:HLSDevice: Trying to load device library: /tools/Xilinx/2025.2/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/2025.2/Vivado/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcve2302-sfva784-1LP-e-S'
+Command         create_platform done; 0.84 sec.
+Execute         source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute         ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+Execute         config_compile -quiet -complex-mul-dsp=1 
+Command       set_part done; 0.9 sec.
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-2174@%s%s component hls_config.cfg 
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+Execute       apply_ini hls_config.cfg 
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=../vd100-aie-ma-crossover/src/mm2s.cpp' from hls_config.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../vd100-aie-ma-crossover/src/mm2s.cpp' from hls_config.cfg(8)
+Execute         add_files /work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp 
+INFO: [HLS 200-10] Adding design file '/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=mm2s' from hls_config.cfg(7) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=mm2s' from hls_config.cfg(7)
+Execute         set_top mm2s 
+Execute         send_msg_by_id INFO @200-1465@%s 'flow_target=vitis' from hls_config.cfg(4) 
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from hls_config.cfg(4)
+Execute         send_msg_by_id INFO @200-1505@%s%s  vitis 
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_latency=64 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_latency=64
+Execute         config_interface -m_axi_latency=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_alignment_byte_size=64 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+Execute         config_interface -m_axi_alignment_byte_size=64 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_interface -m_axi_max_widen_bitwidth=512 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+Execute         config_interface -m_axi_max_widen_bitwidth=512 
+INFO-FLOW: Setting macro_cmd flow_target=vitis configuration: config_interface -default_interface=kernel
+Execute         config_interface -default_interface=kernel 
+Execute         send_msg_by_id INFO @200-435@%s%s 'flow_target=vitis' config_rtl -register_reset_num=3 
+INFO: [HLS 200-435] Setting 'flow_target=vitis' configuration: config_rtl -register_reset_num=3
+Execute         config_rtl -register_reset_num=3 
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xcve2302-sfva784-1LP-e-S' from hls_config.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xcve2302-sfva784-1LP-e-S' from hls_config.cfg(1)
+Execute         set_part xcve2302-sfva784-1LP-e-S 
+Execute           create_platform xcve2302-sfva784-1LP-e-S -board  
+Execute           source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute           ap_part_info -name xcve2302-sfva784-1LP-e-S -data info 
+Execute           config_compile -quiet -complex-mul-dsp=1 
+Execute         send_msg_by_id INFO @200-1465@%s 'package.output.format=xo' from hls_config.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=xo' from hls_config.cfg(5)
+Execute         config_export -format=xo 
+Command       apply_ini done; 0.11 sec.
+Execute       write_component -config /work/versal/vd100-aie-pipeline/mm2s/hls_config.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /work/versal/vd100-aie-pipeline/mm2s/mm2s/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /work/versal/vd100-aie-pipeline/mm2s/mm2s/vitis-comp.json
+Command     open_solution done; 1.03 sec.
+Command   open_component done; 1.03 sec.
+Execute   apply_ini /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file package-xo 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute     AP::get_vpp_package_output_file
+Execute   export_design -flow none 
+Execute     config_export -flow=none 
+INFO-FLOW: DBG:PUTS: export_design_wrap: -format xo -rtl verilog
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:PUTS:   auto_impl: pack: -export -rtl verilog
+INFO-FLOW: DBG:PROC: ::AESL_AUTOIMPL::auto_impl args='-export -rtl verilog'
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+INFO-FLOW: DBG:PUTS: automg_wrap -export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate args='-export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag'
+INFO-FLOW: DBG:PUTS:     auto_generate -export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:PUTS: read_platform_lib /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/common.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/interface.gen 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_family_info -name versalprimees1 -data parts 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:PUTS:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:PUTS:       initCTypeInfo top_module=mm2s xml_exists=0
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/cosimDB.tcl 
+INFO-FLOW: DBG:PUTS:       cosim_export_main adding deadlock detection to mm2s
+INFO-FLOW: DBG:PUTS:       generate_datafile_ip_script ip_types={vitis sysgen} #gSsdmPorts=0
+INFO-FLOW: DBG:PUTS:       kernel.xml check internal_kernel_xml(1)=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/kernel.internal.xml top=mm2s
+INFO-FLOW: DBG:PUTS:       kernel.xml check proj_kernel_xml    (1)=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml
+INFO-FLOW: DBG:PUTS:       copy internal kernel.xml to project: /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml
+INFO-FLOW: DBG:PUTS:       update_final_kernel_xml /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml
+INFO-FLOW: DBG:PUTS: Updating /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/../../kernel.xml with values: interrupt true debug false compileOptions {} name mm2s vlnv xilinx.com:hls:mm2s:1.0 swReset false mailbox none countedAutoRestart 0 deadlockDetection local
+INFO-FLOW: DBG:PUTS: Skipping loadAnalyze_DB, #g_database=7
+INFO-FLOW: DBG:PUTS:       generate_json generate_bd_files=0 generate_xo_files=true #modelList=8 #gSsdmPorts=0
+INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='true' modelList='mm2s_gmem_m_axi
+mm2s_control_s_axi
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_regslice_both
+mm2s_flow_control_loop_pipe
+mm2s
+' rtl_lang='vlog' bootstrap_tcl='false' outdir='' outfilename=''
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/top-io-be.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.rtl_wrap.cfg.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.compgen.dataonly.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.constraint.tcl 
+Execute     sc_get_clocks mm2s 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     source /tools/Xilinx/2025.2/Vitis/tps/tcl/tcllib2.0/fileutil/fileutil.tcl 
+Execute       source /tools/Xilinx/2025.2/Vitis/tps/tcl/tcllib2.0/cmdline/cmdline.tcl 
+INFO-FLOW: DBG:PUTS:       generate_syn_sh
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:PUTS:       generate_imp_constraints
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.constraint.tcl 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/mm2s.tbgen.tcl 
+INFO-FLOW: DBG:PUTS:       delete-temp-dirs pwd=/work/versal/vd100-aie-pipeline/mm2s/mm2s/hls
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data names -quiet 
+Execute     ap_part_info -name xcve2302-sfva784-1LP-e-S -data info -quiet 
+INFO-FLOW: DBG:PUTS: read_platform_lib /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/common.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/generic/autopilot/interface.gen 
+Execute     source /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/.autopilot/db/global.setting.tcl 
+Execute     ap_family_info -name versalprimees1 -data parts 
+Execute     source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/util.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute       source /tools/Xilinx/2025.2/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:PUTS:     IP package: exec /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/pack.sh
+INFO-FLOW: DBG:PUTS:     IP package: success /work/versal/vd100-aie-pipeline/mm2s/mm2s/hls/impl/ip/pack.sh
+Execute     send_msg_by_id INFO @200-802@%s mm2s/mm2s.xo 
+INFO: [HLS 200-802] Generated output file mm2s/mm2s.xo
+Command   export_design done; 3.46 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 

@@ -1,0 +1,15 @@
+[
+  {
+    "directory": "/work/versal/vd100-aie-pipeline/mm2s",
+    "arguments": [
+      "/bin/clang++",
+      "--gcc-toolchain=/tools/Xilinx/2025.2/Vitis/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/2025.2/Vitis/common/technology/autopilot",
+      "-fhlstoplevel=mm2s",
+      "-c",
+      "/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp"
+    ],
+    "file": "/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/mm2s.cpp"
+  }
+]

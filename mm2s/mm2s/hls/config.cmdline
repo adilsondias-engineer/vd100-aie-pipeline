@@ -1,0 +1,3 @@
+relativeroot=/work/versal/vd100-aie-pipeline/mm2s
+original_argv=--mode hls --package --config /work/versal/vd100-aie-pipeline/mm2s/hls_config.cfg --work_dir mm2s 
+

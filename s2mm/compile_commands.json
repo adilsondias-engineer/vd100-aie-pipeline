@@ -1,0 +1,15 @@
+[
+  {
+    "directory": "/work/versal/vd100-aie-pipeline/s2mm",
+    "arguments": [
+      "/bin/clang++",
+      "--gcc-toolchain=/tools/Xilinx/2025.2/Vitis/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/2025.2/Vitis/common/technology/autopilot",
+      "-fhlstoplevel=s2mm",
+      "-c",
+      "/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/s2mm.cpp"
+    ],
+    "file": "/work/versal/vd100-aie-pipeline/vd100-aie-ma-crossover/src/s2mm.cpp"
+  }
+]
