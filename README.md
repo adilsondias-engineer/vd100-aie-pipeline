@@ -1,9 +1,9 @@
 # vd100-aie-pipeline
 
-End-to-end AIE-ML v2 MA Crossover trading signal pipeline for the VD100 board
+End-to-end AIE-ML MA Crossover trading signal pipeline for the VD100 board
 (Versal AI Edge XCVE2302-SFVA784-1LP-E-S).
 
-Implements a dual moving-average crossover detector running on the AIE-ML v2 array,
+Implements a dual moving-average crossover detector running on the AIE-ML array,
 driven by HLS DMA kernels, controlled by an XRT host application on the A72 PS,
 with results destined for an Ethereum smart contract on-chain log.
 
