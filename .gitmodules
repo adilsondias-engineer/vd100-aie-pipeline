@@ -1,0 +1,15 @@
+[submodule "vd100_platform"]
+	path = vd100_platform
+	url = https://github.com/adilsondias-engineer/vd100_platform.git
+[submodule "vd100-aie-ma-crossover"]
+	path = vd100-aie-ma-crossover
+	url = https://github.com/adilsondias-engineer/vd100-aie-ma-crossover.git
+[submodule "vd100_ma_system_project"]
+	path = vd100_ma_system_project
+	url = https://github.com/adilsondias-engineer/vd100_ma_system_project.git
+[submodule "vd100_pipeline_platform"]
+	path = vd100_pipeline_platform
+	url = https://github.com/adilsondias-engineer/vd100_pipeline_platform.git
+[submodule "vd100_bd_aie_pipeline"]
+	path = vd100_bd_aie_pipeline
+	url = https://github.com/adilsondias-engineer/vd100_bd_aie_pipeline.git
