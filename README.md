@@ -59,7 +59,7 @@ vd100-aie-pipeline/
 ## Build Flow
 
 ```
-1.  vd100-ps-aie-pipeline (Vivado)
+1.  vd100-bd-aie-pipeline (Vivado)
         │  Export XSA
         ▼
 2. vd100_platform (Vitis)
