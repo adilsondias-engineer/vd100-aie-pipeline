@@ -39,27 +39,44 @@ with results destined for an Ethereum smart contract on-chain log.
 
 ## Repository Structure
 
+All components are git submodules. Clone with:
+
+```bash
+git clone --recurse-submodules https://github.com/adilsondias-engineer/vd100-aie-pipeline.git
 ```
-vd100-aie-pipeline/
-├── vd100_bd_aie_pipeline/     # Vivado block design — PL hardware platform
-├── ip_repo/                   # Custom IP: MyLEDIP
-├── mm2s/                      # HLS kernel: PS DDR → AXI4-Stream → AIE
-├── s2mm/                      # HLS kernel: AIE → AXI4-Stream → PS DDR
-├── vd100-aie-ma-crossover/    # AIE-ML v2 kernel: MA crossover graph
-├── vd100-ps-ma-client/        # PS XRT host application (A72, C++20)
-├── vd100_dts/                 # SDT / Device Tree output (sdtgen)
-├── vd100_ma_system_project/   # Vitis system project — links all components
-├── vd100_pipeline_platform/   # Pipeline platform (optional — see note)
-└── vd100_platform/            # Base AIE platform (from aie-pipeline XSA)
-└── meta-vd100_v3/             # v3 — + XRT 2025.2, zocl, AIE-ML v2 pipeline, BOOT.BIN CDO fix, Ethereum |
+
+```
+vd100-aie-pipeline/                         # Root repo (this)
+│
+│   XRT Linux Path
+├── vd100_bd_aie_pipeline/              # Vivado block design — PL hardware platform
+├── ip_repo/                            # Custom IP: MyLEDIP
+├── mm2s/                               # HLS kernel: PS DDR → AXI4-Stream → AIE
+├── s2mm/                               # HLS kernel: AIE → AXI4-Stream → PS DDR
+├── vd100-aie-ma-crossover/             # AIE-ML v1 kernel: MA crossover graph
+├── vd100-ps-ma-client/                 # PS XRT host application (A72, C++20, Linux)
+├── vd100_dts/                          # SDT / Device Tree output (sdtgen)
+├── vd100_ma_system_project/            # Vitis system project — XRT Linux path
+├── vd100_pipeline_platform/            # Pipeline platform (optional)
+├── vd100_platform/                     # Base AIE platform (from Vivado XSA)
+├── meta-vd100_v3/                      # Yocto layer — XRT 2025.2, zocl, CDO fix
+│
+│   Bare-Metal Path (no Linux, no XRT, no Yocto)
+├── vd100-bare-metal-aie-platform/      # Vitis platform — BSP with aiebaremetal
+├── vd100-bare-metal-system-project/    # Vitis system project — bare-metal packaging
+├── vd100-bare-metal-uart-echo/         # PS UART echo — bare-metal foundation
+├── vd100-bare-metal-ma-aie-app/        # Auto-run AIE MA crossover, golden validation
+└── vd100-bare-metal-ma-aie-interactive/ # UART-commanded AIE MA crossover
 ```
 
 ---
 
 ## Build Flow
 
+### XRT Linux Path (production)
+
 ```
-1.  vd100-bd-aie-pipeline (Vivado)
+1. aie-pipeline (Vivado)
         │  Export XSA
         ▼
 2. vd100_platform (Vitis)
@@ -80,6 +97,26 @@ vd100-aie-pipeline/
         │  XRT loads xclbin, runs pipeline
         ▼
 7. TradingSignalLog.sol (Hardhat on Venus)
+```
+
+### Bare-Metal Path (HW validation, no Linux required)
+
+```
+1. aie-pipeline (Vivado)
+        │  Export XSA
+        ▼
+2. vd100-bare-metal-aie-platform (Vitis)
+        │  Platform from XSA, BSP with aiebaremetal enabled
+        ▼
+3. vd100-aie-ma-crossover (Vitis AIE compiler)
+   mm2s / s2mm (Vitis HLS)
+        │
+        ▼
+4. vd100-bare-metal-system-project (Vitis)
+        │  v++ package → BOOT.BIN
+        ▼
+5. Copy BOOT.BIN to SD FAT partition → boot VD100
+   Results via minicom at 115200 baud
 ```
 
 ---
@@ -149,14 +186,26 @@ to be reinitialised, producing zero output. Disconnect JTAG before running.
 
 Each component has its own README:
 
+### XRT Linux Path
+
 | Component | Description |
 |-----------|-------------|
 | `vd100_bd_aie_pipeline/` | Vivado BD — platform hardware design |
 | `mm2s/` | HLS DMA source kernel |
 | `s2mm/` | HLS DMA sink kernel |
-| `vd100-aie-ma-crossover/` | AIE-ML v2 kernel + BOOT.BIN fix |
+| `vd100-aie-ma-crossover/` | AIE-ML v1 kernel + BOOT.BIN fix |
 | `vd100_platform/` | Platform creation from XSA |
 | `vd100_ma_system_project/` | System integration, xclbin, packaging |
 | `vd100_pipeline_platform/` | Optional pipeline platform |
 | `vd100-ps-ma-client/` | XRT host application |
-| `meta-vd100_v3/`      | v3 — + XRT 2025.2, zocl, AIE-ML v2 pipeline, BOOT.BIN CDO fix, Ethereum |
+| `meta-vd100_v3/` | Yocto layer — XRT 2025.2, zocl, CDO fix, Ethereum |
+
+### Bare-Metal Path
+
+| Component | Description |
+|-----------|-------------|
+| `vd100-bare-metal-aie-platform/` | Vitis platform — aiebaremetal BSP |
+| `vd100-bare-metal-system-project/` | System project — bare-metal packaging |
+| `vd100-bare-metal-uart-echo/` | PS UART echo — minimal bare-metal foundation |
+| `vd100-bare-metal-ma-aie-app/` | Auto-run AIE MA crossover, golden validation |
+| `vd100-bare-metal-ma-aie-interactive/` | UART-commanded AIE MA crossover |

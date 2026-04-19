@@ -16,3 +16,18 @@
 [submodule "meta-vd100_v3"]
 	path = meta-vd100_v3
 	url = https://github.com/adilsondias-engineer/meta-vd100_v3.git
+[submodule "vd100-bare-metal-aie-platform"]
+	path = vd100-bare-metal-aie-platform
+	url = https://github.com/adilsondias-engineer/vd100-bare-metal-aie-platform.git
+[submodule "vd100-bare-metal-system-project"]
+	path = vd100-bare-metal-system-project
+	url = https://github.com/adilsondias-engineer/vd100-bare-metal-system-project.git
+[submodule "vd100-bare-metal-uart-echo"]
+	path = vd100-bare-metal-uart-echo
+	url = https://github.com/adilsondias-engineer/vd100-bare-metal-uart-echo.git
+[submodule "vd100-bare-metal-ma-aie-app"]
+	path = vd100-bare-metal-ma-aie-app
+	url = https://github.com/adilsondias-engineer/vd100-bare-metal-ma-aie-app.git
+[submodule "vd100-bare-metal-ma-aie-interactive"]
+	path = vd100-bare-metal-ma-aie-interactive
+	url = https://github.com/adilsondias-engineer/vd100-bare-metal-ma-aie-interactive.git
